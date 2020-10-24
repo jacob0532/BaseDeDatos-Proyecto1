@@ -1,0 +1,28 @@
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\bin\Debug\PruebaConexion.exe.config
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\bin\Debug\PruebaConexion.exe
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\bin\Debug\PruebaConexion.pdb
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\obj\Debug\PruebaConexion.csprojResolveAssemblyReference.cache
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\obj\Debug\PruebaConexion.Form1.resources
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\obj\Debug\PruebaConexion.Properties.Resources.resources
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\obj\Debug\PruebaConexion.csproj.GenerateResource.Cache
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\obj\Debug\PruebaConexion.exe
+C:\Users\Yenier\AppData\Local\Temporary Projects\PruebaConexion\obj\Debug\PruebaConexion.pdb
+D:\Escritorio\PruebaConexion\PruebaConexion\bin\Debug\PruebaConexion.exe.config
+D:\Escritorio\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.exe
+D:\Escritorio\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.pdb
+D:\Escritorio\PruebaConexion\PruebaConexion\bin\Debug\PruebaConexion.exe
+D:\Escritorio\PruebaConexion\PruebaConexion\bin\Debug\PruebaConexion.pdb
+D:\Escritorio\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.csprojResolveAssemblyReference.cache
+D:\Escritorio\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.Form1.resources
+D:\Escritorio\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.Properties.Resources.resources
+D:\Escritorio\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.csproj.GenerateResource.Cache
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\bin\Debug\PruebaConexion.exe.config
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\bin\Debug\PruebaConexion.exe
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\bin\Debug\PruebaConexion.pdb
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.csprojAssemblyReference.cache
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.Form1.resources
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.Properties.Resources.resources
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.csproj.GenerateResource.cache
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.csproj.CoreCompileInputs.cache
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.exe
+C:\Users\yeico\Desktop\Proyecto(ConexionC#SQLServer)(3)\Proyecto(ConexionC#SQLServer)\PruebaConexion\PruebaConexion\obj\Debug\PruebaConexion.pdb

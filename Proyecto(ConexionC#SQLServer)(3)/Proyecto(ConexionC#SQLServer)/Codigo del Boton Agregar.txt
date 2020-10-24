@@ -1,0 +1,16 @@
+ private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+          if(c.personaRegistrada(Convert.ToInt32(txtId.Text))==0)
+          {
+             MessageBox.Show(c.insertar(Convert.ToInt32(txtId.Text),txtNombre.Text,txtApellidos.Text,dtpFecha.Text));
+             txtId.Text = "";
+             txtNombre.Text = "";
+             txtApellidos.Text = "";
+
+
+          }
+          else
+          {
+              MessageBox.Show("Imposible de regitrar, El registro ya existe");
+          }
+        }
