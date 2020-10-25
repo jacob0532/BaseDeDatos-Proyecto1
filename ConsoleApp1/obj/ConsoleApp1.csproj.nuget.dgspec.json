@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yeico\\Desktop\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "C:\\Users\\yeico\\Desktop\\BaseDeDatos-Proyecto1\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yeico\\Desktop\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "C:\\Users\\yeico\\Desktop\\BaseDeDatos-Proyecto1\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yeico\\Desktop\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\yeico\\Desktop\\BaseDeDatos-Proyecto1\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\yeico\\Desktop\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "C:\\Users\\yeico\\Desktop\\BaseDeDatos-Proyecto1\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\yeico\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yeico\\Desktop\\ConsoleApp1\\obj\\",
+        "outputPath": "C:\\Users\\yeico\\Desktop\\BaseDeDatos-Proyecto1\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

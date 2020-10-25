@@ -65,7 +65,7 @@ namespace PruebaConexion
         {
           if(c.personaRegistrada(Convert.ToInt32(txtId.Text))==0)
           {
-             MessageBox.Show(c.insertar(Convert.ToInt32(txtId.Text),txtNombre.Text,txtApellidos.Text,dtpFecha.Text));
+             MessageBox.Show(c.insertar(Convert.ToInt32(txtId.Text),txtNombre.Text));
              txtId.Text = "";
              txtNombre.Text = "";
              txtApellidos.Text = "";

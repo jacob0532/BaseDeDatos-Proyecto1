@@ -20,7 +20,7 @@ namespace PruebaConexion
         {
            try
            {
-               cn = new SqlConnection("Data Source=.;Initial Catalog=Tutorial;Integrated Security=True");
+               cn = new SqlConnection("Data Source=proyectobd.cwzzdv93j6mm.us-east-2.rds.amazonaws.com;Initial Catalog=ProyectoBD1;User ID=Admin;Password= AdminAWS123"); 
                cn.Open();
                MessageBox.Show("Conectado");
 
@@ -31,12 +31,12 @@ namespace PruebaConexion
            }
         }
 
-        public string insertar(int id,string nombre,string apellidos,string fecha)
+        public string insertar(int id,string nombre)
         {
             string salida = "Se se inserto";
             try
             {
-                cmd = new SqlCommand("Insert into Persona(Id,Nombre,Apellidos,FechaNacimiento) values("+id+",'"+nombre+"','"+apellidos+"','"+fecha+"')",cn);
+                cmd = new SqlCommand("Insert into TipoDocIdentidad(Id,Nombre) values("+id+",'"+nombre+"')",cn);
                 cmd.ExecuteNonQuery();
             }
             catch(Exception ex)
