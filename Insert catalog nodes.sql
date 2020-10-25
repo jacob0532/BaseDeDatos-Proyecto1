@@ -1,4 +1,4 @@
-CREATE PROCEDURE InsertarXML
+CREATE PROCEDURE InsertarNodosCatalogoXML
 AS
 BEGIN
 
