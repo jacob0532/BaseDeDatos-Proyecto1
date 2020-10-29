@@ -1,8 +1,5 @@
---CREATE PROCEDURE InsertarNodosCatalogoXML
---AS
---BEGIN
-
 --Se lee el archivo XML
+USE ProyectoBD1
 DECLARE @xmlData XML
 SET @xmlData = ( 
 	SELECT * FROM OPENROWSET(
@@ -81,7 +78,7 @@ SET @xmlData = (
 	xmlData( ref )
 	WHERE ref.value('@Id', 'int') not in(select id from TipoCuentaAhorro)
 
----------------Datos de no catalogos---------------
+-------------Datos de no catalogos---------------
 --Inserta los datos de las personas
 	INSERT INTO Cliente (	
 		Nombre, 
@@ -107,26 +104,26 @@ SET @xmlData = (
 
 --Inserta los datos de las cuentas
 	INSERT INTO CuentaAhorro (
-		Clienteid,
-		TipoCuentaId,
-		NumeroCuenta,
-		FechaCreacion,
+		Clienteid, 
+		TipoCuentaId, 
+		NumeroCuenta, 
+		FechaCreacion, 
 		Saldo)
 
-	SELECT 
+	SELECT
 		ref.value('@ValorDocumentoIdentidadDelCliente', 'int'),
 		ref.value('@TipoCuentaId','int'),
 		ref.value('@NumeroCuenta','int'),
 		ref.value('@FechaCreacion','date'),
 		ref.value('@Saldo','money')
-
-	FROM @xmlData.nodes('Datos/Cuentas/Cuenta')
+		   
+	FROM @xmlData.nodes('Datos/Cuentas/Cuenta')	
 	xmlData( ref )
-	WHERE ref.value('@ValorDocumentoIdentidadDelCliente', 'int') not in(select Clienteid from CuentaAhorro)
+	WHERE ref.value('@NumeroCuenta', 'int') not in(select NumeroCuenta from CuentaAhorro)
 
 --Inserta los datos de beneficiarios
 	INSERT INTO Beneficiarios (
-		NumeroCuenta,
+		NumeroCuenta, 
 		ValorDocumentoIdentidadBeneficiario, 
 		ParentezcoId, 
 		Porcentaje)
@@ -139,7 +136,6 @@ SET @xmlData = (
 
 	FROM @xmlData.nodes('Datos/Beneficiarios/Beneficiario ')
 	xmlData( ref )	
-	WHERE ref.value('@ValorDocumentoIdentidad', 'int') not in(select ValorDocIdentidad from Cliente)
 
 --Inserta los datos de los estados de cuenta
 	INSERT INTO EstadoCuenta(
@@ -158,7 +154,7 @@ SET @xmlData = (
 
 	FROM @xmlData.nodes('Datos/Estados_de_Cuenta/Estado_de_Cuenta')
 	xmlData( ref )
-	WHERE ref.value('@NumeroCuenta', 'int') not in(select NumeroCuenta from EstadoCuenta)
+	--WHERE ref.value('@NumeroCuenta', 'int') in(select NumeroCuenta from CuentaAhorro)
 
 --Inserta los datos de usuarios
 	INSERT INTO Usuario(	
@@ -190,25 +186,14 @@ SET @xmlData = (
 	xmlData( ref )
 	WHERE ref.value('@NumeroCuenta', 'int') not in(select NumeroCuenta from UsuarioPuedeVer)
 
-	--delete TipoDocIdentidad
-	--delete TipoMoneda	
-	--delete Parentezco
-	--delete TipoCuentaAhorro
-	--delete Cliente
-	--delete CuentaAhorro
-	--delete Beneficiarios
-	--delete EstadoCuenta
-	--delete Usuario
-	--delete UsuarioPuedeVer
-	
 
 	Select * from TipoDocIdentidad
 	Select * from TipoMoneda	
 	Select * from Parentezco
 	Select * from TipoCuentaAhorro
 	Select * from Cliente
-	Select * from CuentaAhorro
-	Select * from Beneficiarios
-	Select * from EstadoCuenta
+	Select * from CuentaAhorro	-- no esta insertando
+	Select * from Beneficiarios -- no esta insertando
+	Select * from EstadoCuenta	-- no esta insertando 
 	Select * from Usuario
 	Select * from UsuarioPuedeVer

@@ -1,5 +1,0 @@
-Amazon Relational Database Service (RDS)
-
-https://www.youtube.com/watch?v=Ej3A94uNp9I&ab_channel=umgteam
-
-todas son identify y set primary key
