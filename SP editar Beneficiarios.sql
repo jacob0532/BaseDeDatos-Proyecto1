@@ -4,6 +4,7 @@ CREATE PROCEDURE EditarBeneficiarios
 	,@inParentezcoId INT
 	,@inPorcentaje INT
 	,@outResultCode INT
+	,@inID INT
 AS
 BEGIN 
 	SET NOCOUNT ON
@@ -21,7 +22,7 @@ BEGIN
 			RETURN 
 		END;
 
-	IF NOT EXISTS(SELECT 1 FROM dbo.Cliente CL WHERE CL.ValorDocIdentidad = @inParentezcoId)
+	IF NOT EXISTS(SELECT 1 FROM dbo.Cliente CL WHERE CL.ValorDocIdentidad = @inValorDocIdentidadBeneficiario)
 		BEGIN
 			SET @outResultCode = 50004; --El tipo de documento de identidad 
 			RETURN
@@ -30,12 +31,12 @@ BEGIN
 	ELSE 
 		BEGIN
 			UPDATE [dbo].[Beneficiarios]
-				SET [NumeroCuenta] = @inNumeroCuenta
-					,[ValorDocumentoIdentidadBeneficiario] = @inValorDocIdentidadBeneficiario
-					,[ParentezcoId] = @inParentezcoId
-					,[Porcentaje] = @inPorcentaje
+			SET [NumeroCuenta] = @inNumeroCuenta
+				,[ValorDocumentoIdentidadBeneficiario] = @inValorDocIdentidadBeneficiario
+				,[ParentezcoId] = @inParentezcoId
+				,[Porcentaje] = @inPorcentaje
+			WHERE @inID = id 
 		END;
 	SET NOCOUNT OFF
 END;
-GO;
 		
