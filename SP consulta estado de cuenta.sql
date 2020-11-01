@@ -1,9 +1,17 @@
-CREATE PROCEDURE ConsultaEstadoCuenta
-	@inNumeroCuenta INT
+CREATE PROCEDURE ConsultaEstadoCuenta @inNumeroCuenta INT
 AS
-BEGIN 
+BEGIN
 	SET NOCOUNT ON
-	SELECT * FROM EstadoCuenta WHERE NumeroCuenta = @inNumeroCuenta
+
+	SELECT TOP (8) id
+		,NumeroCuenta
+		,FechaInicio
+		,FechaFin
+		,SaldoInicial
+		,SaldoFinal
+	FROM EstadoCuenta
+	WHERE NumeroCuenta = @inNumeroCuenta
+	ORDER BY FechaInicio ASC
+
 	SET NOCOUNT OFF
 END;
-		
