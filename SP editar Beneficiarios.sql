@@ -1,42 +1,73 @@
-CREATE PROCEDURE EditarBeneficiarios
-	@inNumeroCuenta INT
+/*Procedimiento que edita los beneficiarios*/
+CREATE PROCEDURE EditarBeneficiarios @inNumeroCuenta INT
 	,@inValorDocIdentidadBeneficiario INT
 	,@inParentezcoId INT
 	,@inPorcentaje INT
-	,@outResultCode INT
 	,@inID INT
+	,@inAccion VARCHAR(10)
 AS
-BEGIN 
+BEGIN
 	SET NOCOUNT ON
-	SELECT 
-		@outResultCode = 0;
-	IF NOT EXISTS(SELECT 1 FROM dbo.CuentaAhorro C WHERE C.NumeroCuenta = @inNumeroCuenta )
-		BEGIN 
-			SET @outResultCode = 50001; --La cuenta no existe
-			RETURN 
-		END;
 
-	IF NOT EXISTS(SELECT 1 FROM dbo.Parentezco P WHERE P.id = @inParentezcoId)
-		BEGIN 
-			SET @outResultCode = 50002; --El id parentezco no existe
-			RETURN 
-		END;
+	/*Validaciones*/
+	IF @inNumeroCuenta IN (
+			SELECT 1
+			FROM CuentaAhorro
+			WHERE NumeroCuenta = @inNumeroCuenta
+			)
+		RETURN 5001	--El numero de cuenta no existe
 
-	IF NOT EXISTS(SELECT 1 FROM dbo.Cliente CL WHERE CL.ValorDocIdentidad = @inValorDocIdentidadBeneficiario)
+	IF @inValorDocIdentidadBeneficiario IN (
+			SELECT 1
+			FROM Cliente
+			WHERE ValorDocIdentidad = @inValorDocIdentidadBeneficiario
+			)
+		RETURN 5002 --el beneficiario no existe
+
+	IF @inParentezcoId NOT IN (
+			SELECT 1
+			FROM Parentezco
+			WHERE id = @inParentezcoId
+			)
+		RETURN 5002	--El parentezco no existe
+
+	IF @inPorcentaje < 0
+		OR @inPorcentaje > 100
+		RETURN 5003	--El porcentaje es mayor a cien o negativo
+
+	/*Agrega un nuevo beneficiario*/
+	IF @inAccion = 'AGREGAR'
+	BEGIN
+		INSERT INTO Beneficiarios (
+			NumeroCuenta
+			,ValorDocumentoIdentidadBeneficiario
+			,ParentezcoId
+			,Porcentaje
+			)
+		VALUES (
+			@inNumeroCuenta
+			,@inValorDocIdentidadBeneficiario
+			,@inParentezcoId
+			,@inPorcentaje
+			)
+	END
+
+	/*Editar beneficiario*/
+	IF @inAccion = 'EDITAR'
+	BEGIN
+		UPDATE Beneficiarios
+		SET NumeroCuenta = @inNumeroCuenta
+			,ValorDocumentoIdentidadBeneficiario = @inValorDocIdentidadBeneficiario
+			,ParentezcoId = @inParentezcoId
+			,Porcentaje = @inPorcentaje
+		WHERE id = @inID
+	END
+
+	/*Eliminar beneficiario*/
+	IF @inAccion = 'ELIMINAR'
 		BEGIN
-			SET @outResultCode = 50004; --El tipo de documento de identidad 
-			RETURN
-		END;
-
-	ELSE 
-		BEGIN
-			UPDATE [dbo].[Beneficiarios]
-			SET [NumeroCuenta] = @inNumeroCuenta
-				,[ValorDocumentoIdentidadBeneficiario] = @inValorDocIdentidadBeneficiario
-				,[ParentezcoId] = @inParentezcoId
-				,[Porcentaje] = @inPorcentaje
-			WHERE @inID = id 
-		END;
+			DELETE FROM Beneficiarios
+			WHERE id = @inID
+		END
 	SET NOCOUNT OFF
 END;
-		
