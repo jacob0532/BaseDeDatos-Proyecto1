@@ -3,7 +3,7 @@
 DECLARE @xmlData XML
 SET @xmlData = ( 
 	SELECT * FROM OPENROWSET(
-		BULK 'D:\s3\Datos_Tarea1.xml',SINGLE_BLOB
+		BULK 'D:\s3\Datos.xml',SINGLE_BLOB
 	) AS xmlData
 )
 
