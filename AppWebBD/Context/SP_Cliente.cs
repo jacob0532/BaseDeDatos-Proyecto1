@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace AppWebBD.Context
 {
-    public class SP
+    public class SP_Cliente
     {
         string connectionString = "Data Source=proyectobd.cwzzdv93j6mm.us-east-2.rds.amazonaws.com;Initial Catalog=ProyectoBD1;User ID=Admin;Password= AdminAWS123";
         public IEnumerable<Cliente> SeleccionarClientes()
@@ -41,7 +41,7 @@ namespace AppWebBD.Context
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SeleccionarClientePorCedula", con);
+                SqlCommand cmd = new SqlCommand("SP_SeleccionarClientePorCedula", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Cedula", ValorDocIdentidad);

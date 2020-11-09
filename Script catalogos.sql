@@ -7,9 +7,7 @@ SET @xmlData = (
 )
 
 --Inserta el tipo de documento de indentidad de los xml
-	INSERT INTO TipoDocIdentidad(
-		ID, 
-		NOMBRE)
+	INSERT INTO TipoDocIdentidad(id,Nombre)
 
 	SELECT 
 		ref.value('@Id', 'int'),

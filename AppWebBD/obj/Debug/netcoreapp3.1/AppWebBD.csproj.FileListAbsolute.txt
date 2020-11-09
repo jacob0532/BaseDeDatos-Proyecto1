@@ -114,5 +114,12 @@ C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\zh
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.csproj.CoreCompileInputs.cache
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Index.cshtml.g.cs
-C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Details.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\Index.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\Details.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\Login.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutUsuario.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\UsuarioConfirmed.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\EditarBen.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\AddBen.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\ConsultarEstadoCuenta.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\DeleteBen.cshtml.g.cs
