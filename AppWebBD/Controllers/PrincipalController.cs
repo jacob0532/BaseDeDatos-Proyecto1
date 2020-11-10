@@ -30,6 +30,7 @@ namespace AppWebBD.Controllers
             }
             return View(cliente);
         }
+
         public ActionResult Login()
         {
             return View();
@@ -53,6 +54,13 @@ namespace AppWebBD.Controllers
             }
 
         }
+
+        public ActionResult LogOut(Usuario usuario)
+        {
+            usuario = null;
+            return View("Index");
+        }
+
         public ActionResult UsuarioConfirmed(Usuario usuario)
         {
             if(usuario.User != null) 
