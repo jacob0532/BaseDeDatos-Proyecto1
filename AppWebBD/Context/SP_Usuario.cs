@@ -11,11 +11,11 @@ namespace AppWebBD.Context
         string connectionString = "Data Source=proyectobd.cwzzdv93j6mm.us-east-2.rds.amazonaws.com;Initial Catalog=ProyectoBD1;User ID=Admin;Password= AdminAWS123";
         public Usuario verUsuario(string User,string Pass) //Revisa si el usuario y contraseña ingresados pertenece a la base de datos.
         {
-            var usuario = new Usuario();
+            var usuario = new Usuario();                   //Crea un objeto de tipo usuario.
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString))     
             {
-                SqlCommand cmd = new SqlCommand("SP_CompararUsuario", con);
+                SqlCommand cmd = new SqlCommand("SP_CompararUsuario", con); 
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Usuario", User);

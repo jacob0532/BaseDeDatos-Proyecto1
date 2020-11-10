@@ -12,6 +12,9 @@ namespace AppWebBD.Controllers
     {
         SP_Cliente SP_ProcedureCliente = new SP_Cliente();
         SP_Usuario SP_ProcedureUsuario = new SP_Usuario();
+
+        public object FlashMessage { get; private set; }
+
         public IActionResult Index()
         {
             List<Cliente> clienteList = SP_ProcedureCliente.SeleccionarClientes().ToList();
@@ -36,23 +39,32 @@ namespace AppWebBD.Controllers
         [HttpPost, ActionName("Login")]
         public ActionResult LoginConfirmed(string user,string pass)
         {
-            //System.Diagnostics.Trace.WriteLine("\n A VEEEEEER"+user);
             Usuario usuario = SP_ProcedureUsuario.verUsuario(user, pass);
-            if(usuario.User != null)
+            System.Diagnostics.Trace.WriteLine(usuario);
+            if (usuario.User != null)
             {
                 return UsuarioConfirmed(usuario);
             }
             else
             {
+                var msg = "El usuario o contraseña no son válidos.";    //Mensaje de error.
+                TempData["ErrorMessage"] = msg;                         //Tempdata, guarda el mensaje de error.
                 return RedirectToAction("Login");
             }
+
         }
-        public ActionResult UsuarioConfirmed(Usuario usuario) //jaguero  LaFacil
+        public ActionResult UsuarioConfirmed(Usuario usuario)
         {
-            //System.Diagnostics.Trace.WriteLine("\n A VEEEEEER" + usuario.User);
-            //ViewBag.user = usuario.User;
-            return View("UsuarioConfirmed",usuario);
+            if(usuario.User != null) 
+            { 
+                return View("UsuarioConfirmed",usuario);
+            }
+            else
+            {
+                return View("Login");
+            }
         }
+
         public ActionResult AddBen()
         {
             return View();
