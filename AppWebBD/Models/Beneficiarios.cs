@@ -1,11 +1,15 @@
-﻿namespace AppWebBD.Models
+﻿using System;
+
+namespace AppWebBD.Models
 {
     public class Beneficiarios
     {
-        public int Id { get; set; }
         public long NumeroCuenta { get; set; }
-        public int ValorDocumentoIdentidad { get; set; }
-        public int Parentezcoid { get; set; }
-        public float Porcentaje { get; set; }
+        public int ValorDocumentoIdentidadBeneficiario { get; set; }
+        public int ParentezcoId { get; set; }
+        public int Porcentaje { get; set; }
+        public Boolean Activo { get; set; }
+        public string FechaDesactivacion { get; set; }
+
     }
 }

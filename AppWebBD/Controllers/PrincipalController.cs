@@ -12,6 +12,8 @@ namespace AppWebBD.Controllers
     {
         SP_Cliente SP_ProcedureCliente = new SP_Cliente();
         SP_Usuario SP_ProcedureUsuario = new SP_Usuario();
+        SP_CuentaAhorro SP_ProcedureCuentaAhorro = new SP_CuentaAhorro();
+        SP_Beneficiario SP_ProcedureBeneficiario = new SP_Beneficiario();
         public IActionResult Index()
         {
             List<Cliente> clienteList = SP_ProcedureCliente.SeleccionarClientes().ToList();
@@ -40,35 +42,52 @@ namespace AppWebBD.Controllers
             Usuario usuario = SP_ProcedureUsuario.verUsuario(user, pass);
             if(usuario.User != null)
             {
-                return UsuarioConfirmed(usuario);
+                return CuentasAhorro(usuario);
             }
             else
             {
                 return RedirectToAction("Login");
             }
         }
-        public ActionResult UsuarioConfirmed(Usuario usuario) //jaguero  LaFacil
-        {
-            //System.Diagnostics.Trace.WriteLine("\n A VEEEEEER" + usuario.User);
+            //System.Diagnostics.Trace.WriteLine("\n A VEEEEEER" + usuario.User); imprime y pasar un parametro a la vista 
             //ViewBag.user = usuario.User;
-            return View("UsuarioConfirmed",usuario);
+            //return View("UsuarioConfirmed",usuario);
+        public ActionResult CuentasAhorro(Usuario usuario)
+        {
+            if(usuario.EsAdmi == 0)
+            {
+                List<CuentaAhorro> cuentaList = SP_ProcedureCuentaAhorro.SeleccionarCuentaPorCedula(usuario.ValorDocIdentidad).ToList();
+                return View("CuentasAhorro", cuentaList);
+            }
+            else
+            {
+                List<CuentaAhorro> cuentaList = SP_ProcedureCuentaAhorro.ObtenerTodasLasCuentas().ToList();
+                return View("CuentasAhorro", cuentaList);
+            }
         }
-        public ActionResult AddBen()
+        public ActionResult verBeneficiarios(int numeroCuenta)
+        {
+            System.Diagnostics.Trace.WriteLine("\n A VEEEEEER" + numeroCuenta);
+            List<Beneficiarios> beneficariosList = SP_ProcedureBeneficiario.SeleccionarBeneficiarios(numeroCuenta).ToList();
+            return View(beneficariosList);
+        }
+        public ActionResult verEstadoDeCuenta(int numeroCuenta)
         {
             return View();
         }
-        public ActionResult EditarBen() 
+        public ActionResult agregarBeneficiario(int numeroCuenta)
         {
             return View();
         }
-        public ActionResult DeleteBen()
+        public ActionResult editarBeneficiario(int numeroCuenta)
         {
             return View();
         }
-        public ActionResult ConsultarEstadoCuenta()
+        public ActionResult eliminarBeneficiario(int numeroCuenta)
         {
             return View();
         }
+
     }
 
 }

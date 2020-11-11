@@ -23,12 +23,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="Index">Cliente</a>
                             </li>
                         -->
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Principal" asp-action="Login">Iniciar Sesión</a>
-            </nav>
-        </header>
+            </div>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Principal" asp-action="Login">Iniciar Sesión</a>
+        </nav>
+    </header>
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
@@ -38,5 +38,5 @@
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @RenderSection("Scripts", required: false)
-    </body>
+</body>
     </html>

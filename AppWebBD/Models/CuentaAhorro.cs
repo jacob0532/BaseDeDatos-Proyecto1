@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 
 namespace AppWebBD.Models
 {
@@ -8,6 +8,6 @@ namespace AppWebBD.Models
         public int TipoCuentaid { get; set; }
         public long NumeroCuenta { get; set; }
         public string FechaCreacion { get; set; }
-        public long Saldo { get; set; }
+        public double Saldo { get; set; }
     }
 }

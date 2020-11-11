@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AppWebBD.Models.Beneficiarios>
+
+@{
+    ViewData["Title"] = "verBeneficiarios";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h1>verBeneficiarios</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroCuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorDocumentoIdentidadBeneficiario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentezcoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porcentaje)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorDocumentoIdentidadBeneficiario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentezcoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porcentaje)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
