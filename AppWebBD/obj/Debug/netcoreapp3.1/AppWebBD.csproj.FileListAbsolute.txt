@@ -125,7 +125,6 @@ C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Ra
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\DeleteBen.cshtml.g.cs
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\AppWebBD.exe
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\AppWebBD.deps.json
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\bin\Debug\netcoreapp3.1\AppWebBD.runtimeconfig.json
@@ -230,7 +229,6 @@ C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyec
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\DeleteBen.cshtml.g.cs
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\Details.cshtml.g.cs
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\EditarBen.cshtml.g.cs
-C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\Index.cshtml.g.cs
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\Login.cshtml.g.cs
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\UsuarioConfirmed.cshtml.g.cs
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -248,3 +246,4 @@ C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyec
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.dll
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.pdb
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.genruntimeconfig.cache
+C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\scopedcss\bundle\AppWebBD.styles.css
