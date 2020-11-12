@@ -1,3 +1,4 @@
+use ProyectoBD1
 -------------Datos de no catalogos---------------
 --Se lee el archivo XML
 DECLARE @xmlData XML
@@ -55,11 +56,15 @@ INSERT INTO Beneficiarios (
 	,ValorDocumentoIdentidadBeneficiario
 	,ParentezcoId
 	,Porcentaje
+	,Activo
+	,FechaDesactivacion
 	)
 SELECT ref.value('@NumeroCuenta', 'int')
 	,ref.value('@ValorDocumentoIdentidadBeneficiario', 'int')
 	,ref.value('@ParentezcoId', 'int')
 	,ref.value('@Porcentaje', 'int')
+	,1
+	,null
 FROM @xmlData.nodes('Datos/Beneficiarios/Beneficiario ') xmlData(ref)
 
 --Inserta los datos de los estados de cuenta
@@ -75,9 +80,9 @@ SELECT ref.value('@NumeroCuenta', 'int')
 	,ref.value('@fechaFin', 'Date')
 	,ref.value('@saldoInicial', 'money')
 	,ref.value('@saldoFinal', 'money')
-FROM @xmlData.nodes('Datos/Estados_de_Cuenta/Estado_de_Cuenta') xmlData(ref)
+FROM @xmlData.nodes('Datos/Estados_de_Cuenta/Estado_de_Cuenta')
+xmlData(ref)
 
---WHERE ref.value('@NumeroCuenta', 'int') in(select NumeroCuenta from CuentaAhorro)
 --Inserta los datos de usuarios
 INSERT INTO Usuario (
 	[User]
