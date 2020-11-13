@@ -1,4 +1,6 @@
-﻿namespace AppWebBD.Models
+﻿using System;
+
+namespace AppWebBD.Models
 {
     public class Cliente
     {

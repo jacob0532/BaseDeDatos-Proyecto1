@@ -1,51 +1,86 @@
-﻿@model IEnumerable<AppWebBD.Models.Beneficiarios>
+﻿@model AppWebBD.Models.Tablas
 
 @{
     ViewData["Title"] = "verBeneficiarios";
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
+@{ 
+    List<Beneficiarios> listaBeneficiario = Model.ListaDeBeneficiarios;
+    List<Cliente> listaCliente = Model.ListaDeClientes;
+    List<Parentezco> listaParentezco = Model.ListaDeParentezcos;
+}
 
-<h1>verBeneficiarios</h1>
+<h1>Beneficiarios</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NumeroCuenta)
+                Ligado a la cuenta
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorDocumentoIdentidadBeneficiario)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ParentezcoId)
+                Identificación
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Porcentaje)
+                Email
+            </th>
+            <th>
+                Fecha De Nacimiento
+            </th>
+            <th>
+                Telefono1
+            </th>
+            <th>
+                Telefono2
+            </th>
+            <th>
+                Parentezco
+            </th>
+            <th>
+                Porcentaje
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @for (int i = 0; i < listaBeneficiario.Count; i++)
+        {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.NumeroCuenta)
+                @listaBeneficiario[i].NumeroCuenta
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValorDocumentoIdentidadBeneficiario)
+                @listaCliente[i].Nombre
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ParentezcoId)
+                @listaBeneficiario[i].ValorDocumentoIdentidadBeneficiario
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Porcentaje)
+                @listaCliente[i].Email
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @listaCliente[i].FechaNacimiento
+            </td>
+            <td>
+                @listaCliente[i].Telefono1
+            </td>
+            <td>
+                @listaCliente[i].Telefono2
+            </td>
+            <td>
+                @listaParentezco[i].Nombre
+            </td>
+            <td>
+                @listaBeneficiario[i].Porcentaje
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) 
+                @Html.ActionLink("\nEliminar", "eliminarBeneficiario", new { ValorDocumentoIdentidadBeneficiario = @listaBeneficiario[i].ValorDocumentoIdentidadBeneficiario, numeroCuenta = @listaBeneficiario[i].NumeroCuenta})
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

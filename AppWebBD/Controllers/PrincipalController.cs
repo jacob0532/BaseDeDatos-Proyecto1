@@ -14,6 +14,7 @@ namespace AppWebBD.Controllers
         SP_Usuario SP_ProcedureUsuario = new SP_Usuario();
         SP_CuentaAhorro SP_ProcedureCuentaAhorro = new SP_CuentaAhorro();
         SP_Beneficiario SP_ProcedureBeneficiario = new SP_Beneficiario();
+        SP_Parentezco SP_ProcedureParentezco = new SP_Parentezco();
         public IActionResult Index()
         {
             List<Cliente> clienteList = SP_ProcedureCliente.SeleccionarClientes().ToList();
@@ -33,19 +34,16 @@ namespace AppWebBD.Controllers
         {
             return View();
         }
-
-
         [HttpPost, ActionName("Login")]
         public ActionResult LoginConfirmed(string user,string pass)
         {
-            //System.Diagnostics.Trace.WriteLine("\n A VEEEEEER"+user);
             Usuario usuario = SP_ProcedureUsuario.verUsuario(user, pass);
             if(usuario.User != null)
             {
                 return CuentasAhorro(usuario);
             }
             else
-            {
+            {   
                 return RedirectToAction("Login");
             }
         }
@@ -67,9 +65,21 @@ namespace AppWebBD.Controllers
         }
         public ActionResult verBeneficiarios(int numeroCuenta)
         {
-            System.Diagnostics.Trace.WriteLine("\n A VEEEEEER" + numeroCuenta);
             List<Beneficiarios> beneficariosList = SP_ProcedureBeneficiario.SeleccionarBeneficiarios(numeroCuenta).ToList();
-            return View(beneficariosList);
+            List<Cliente> clientesList = new List<Cliente>();
+            List<Parentezco> parentezcoList = new List<Parentezco>();
+            foreach (var item in beneficariosList)
+            {
+                Cliente cliente = SP_ProcedureCliente.SeleccionarClientePorCedula(item.ValorDocumentoIdentidadBeneficiario);
+                clientesList.Add(cliente);
+                Parentezco parentezco = SP_ProcedureParentezco.SeleccionarParentezco(item.ParentezcoId);
+                parentezcoList.Add(parentezco);
+            }
+            Tablas tabla = new Tablas();
+            tabla.ListaDeBeneficiarios = beneficariosList;
+            tabla.ListaDeClientes = clientesList;
+            tabla.ListaDeParentezcos = parentezcoList;
+            return View(tabla);
         }
         public ActionResult verEstadoDeCuenta(int numeroCuenta)
         {
@@ -79,13 +89,31 @@ namespace AppWebBD.Controllers
         {
             return View();
         }
-        public ActionResult editarBeneficiario(int numeroCuenta)
+        public ActionResult editarBeneficiario(int ValorDocumentoIdentidadBeneficiario)
         {
             return View();
         }
-        public ActionResult eliminarBeneficiario(int numeroCuenta)
+        public ActionResult eliminarBeneficiario(int ValorDocumentoIdentidadBeneficiario,int numeroCuenta)
         {
-            return View();
+            Beneficiarios beneficiario = SP_ProcedureBeneficiario.SeleccionarBeneficiarioPorCedula(ValorDocumentoIdentidadBeneficiario);
+            if (beneficiario != null)
+                return View(beneficiario);
+            else
+                return NotFound();
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult eliminarConfirmed(int ValorDocumentoIdentidadBeneficiario,int numeroCuenta)
+        {
+            try
+            {
+                SP_ProcedureBeneficiario.EliminarBeneficiario(ValorDocumentoIdentidadBeneficiario);
+                return RedirectToAction("verBeneficiarios",numeroCuenta);
+            }
+            catch
+            {
+                return NotFound();
+            }
         }
 
     }

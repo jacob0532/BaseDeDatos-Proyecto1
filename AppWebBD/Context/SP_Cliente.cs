@@ -24,7 +24,7 @@ namespace AppWebBD.Context
                     cliente.Nombre = dr["Nombre"].ToString();
                     cliente.ValorDocIdentidad = Convert.ToInt32(dr["ValorDocIdentidad"].ToString());
                     cliente.Email = dr["Email"].ToString();
-                    cliente.FechaNacimiento = dr["FechaNacimiento"].ToString();
+                    cliente.FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]).ToString("d");
                     cliente.Telefono1 = Convert.ToInt32(dr["Telefono1"].ToString());
                     cliente.Telefono2 = Convert.ToInt32(dr["Telefono2"].ToString());
                     cliente.TipoDocIdentidadid = Convert.ToInt32(dr["TipoDocIdentidadid"].ToString());
@@ -53,7 +53,7 @@ namespace AppWebBD.Context
                     cliente.Nombre = dr["Nombre"].ToString();
                     cliente.ValorDocIdentidad = Convert.ToInt32(dr["ValorDocIdentidad"].ToString());
                     cliente.Email = dr["Email"].ToString();
-                    cliente.FechaNacimiento = dr["FechaNacimiento"].ToString();
+                    cliente.FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]).ToString("d");
                     cliente.Telefono1 = Convert.ToInt32(dr["Telefono1"].ToString());
                     cliente.Telefono2 = Convert.ToInt32(dr["Telefono2"].ToString());
                     cliente.TipoDocIdentidadid = Convert.ToInt32(dr["TipoDocIdentidadid"].ToString());

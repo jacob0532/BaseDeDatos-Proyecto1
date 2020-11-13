@@ -32,11 +32,57 @@ namespace AppWebBD.Context
                     beneficiario.Activo = Convert.ToBoolean(dr["Activo"]);
                     if(beneficiario.FechaDesactivacion!=null)
                         beneficiario.FechaDesactivacion = Convert.ToDateTime(dr["FechaDesactivacion"]).ToString("d");
-                    beneficiarioLista.Add(beneficiario);
+                    if(beneficiario.Activo)
+                        beneficiarioLista.Add(beneficiario);
                 }
                 con.Close();
             }
             return beneficiarioLista;
+        }
+
+        public Beneficiarios SeleccionarBeneficiarioPorCedula(int? ValorDocumentoIdentidadBeneficiario) //El signo de pregunta sirve para generar un error si el contenido es NULL
+        {
+            var beneficiario = new Beneficiarios();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SP_BeneficiarioPorID", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@ValorDocumentoIdentidadBeneficiario", ValorDocumentoIdentidadBeneficiario);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                   
+                    beneficiario.NumeroCuenta = Convert.ToInt32(dr["NumeroCuenta"]);
+                    beneficiario.ValorDocumentoIdentidadBeneficiario = Convert.ToInt32(dr["ValorDocumentoIdentidadBeneficiario"]);
+                    beneficiario.ParentezcoId = Convert.ToInt32(dr["ParentezcoId"]);
+                    beneficiario.Porcentaje = Convert.ToInt32(dr["Porcentaje"]);
+                    beneficiario.Activo = Convert.ToBoolean(dr["Activo"]);
+                    if (beneficiario.FechaDesactivacion != null)
+                        beneficiario.FechaDesactivacion = Convert.ToDateTime(dr["FechaDesactivacion"]).ToString("d");
+                }
+                con.Close();
+            }
+            if (beneficiario.Activo)
+                return beneficiario;
+            else
+                return null;
+        }
+        public void EliminarBeneficiario(int? valorDocumentoBeneficiario)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SP_EliminarBeneficiario", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ValorDocumentoIdentidadBeneficiario", valorDocumentoBeneficiario);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
         }
     }
 }
