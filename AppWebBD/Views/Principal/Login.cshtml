@@ -2,6 +2,13 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    if(@TempData["WarningPorcentage"]!= null){
+        <div class = "alert alert-danger">
+            @TempData["WarningPorcentage"]
+        </div>
+    }
+}
 <body>
     <form asp-action = "login">
         <div class="form-group">
