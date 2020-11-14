@@ -1,11 +1,11 @@
-use ProyectoBD1
+USE ProyectoBD1
 -------------Datos de no catalogos---------------
 --Se lee el archivo XML
 DECLARE @xmlData XML
 
 SET @xmlData = (
 		SELECT *
-		FROM OPENROWSET(BULK 'D:\S3\Datos_Tarea1 v2.xml', SINGLE_BLOB) AS xmlData
+		FROM OPENROWSET(BULK 'D:\S3\Datos_Tarea1 v2.1.xml', SINGLE_BLOB) AS xmlData
 		)
 
 --Inserta los datos de las personas
