@@ -15,6 +15,9 @@ namespace AppWebBD.Controllers
         SP_CuentaAhorro SP_ProcedureCuentaAhorro = new SP_CuentaAhorro();
         SP_Beneficiario SP_ProcedureBeneficiario = new SP_Beneficiario();
         SP_Parentezco SP_ProcedureParentezco = new SP_Parentezco();
+        SP_EstadoCuenta SP_ProcedureEstadoCuenta = new SP_EstadoCuenta();
+        public static Usuario usuarioFijo { get; set; } = null;
+        public static int cedulaAnterior { get; set; } = 0;
         public IActionResult Index()
         {
             List<Cliente> clienteList = SP_ProcedureCliente.SeleccionarClientes().ToList();
@@ -38,7 +41,8 @@ namespace AppWebBD.Controllers
         public ActionResult LoginConfirmed(string user,string pass)
         {
             Usuario usuario = SP_ProcedureUsuario.verUsuario(user, pass);
-            if(usuario.User != null)
+            usuarioFijo = usuario;
+            if (usuario.User != null)
             {
                 return CuentasAhorro(usuario);
             }
@@ -52,7 +56,7 @@ namespace AppWebBD.Controllers
             //return View("UsuarioConfirmed",usuario);
         public ActionResult CuentasAhorro(Usuario usuario)
         {
-            if(usuario.EsAdmi == 0)
+            if (usuario.EsAdmi == 0)
             {
                 List<CuentaAhorro> cuentaList = SP_ProcedureCuentaAhorro.SeleccionarCuentaPorCedula(usuario.ValorDocIdentidad).ToList();
                 return View("CuentasAhorro", cuentaList);
@@ -79,19 +83,50 @@ namespace AppWebBD.Controllers
             tabla.ListaDeBeneficiarios = beneficariosList;
             tabla.ListaDeClientes = clientesList;
             tabla.ListaDeParentezcos = parentezcoList;
-            return View(tabla);
+            return View("verBeneficiarios",tabla);
+        }
+        public ActionResult volverIndex()
+        {
+            return LoginConfirmed(usuarioFijo.User, usuarioFijo.Pass);
         }
         public ActionResult verEstadoDeCuenta(int numeroCuenta)
         {
-            return View();
+            List<EstadoCuenta> estadosCuentasList = SP_ProcedureEstadoCuenta.SeleccionarEstadoDeCuenta(numeroCuenta).ToList();
+            return View(estadosCuentasList);
         }
         public ActionResult agregarBeneficiario(int numeroCuenta)
         {
             return View();
         }
+
+        [HttpPost, ActionName("agregarBeneficiario")]
+        public ActionResult agregarBeneficiario([Bind]Beneficiarios beneficiario)
+        {
+            if (ModelState.IsValid)
+            {
+                SP_ProcedureBeneficiario.AgregarBeneficiario(beneficiario);
+                return RedirectToAction("volverIndex");
+            }
+            return NotFound();
+        }
         public ActionResult editarBeneficiario(int ValorDocumentoIdentidadBeneficiario)
         {
-            return View();
+            cedulaAnterior = ValorDocumentoIdentidadBeneficiario;
+            Beneficiarios beneficiario = SP_ProcedureBeneficiario.SeleccionarBeneficiarioPorCedula(ValorDocumentoIdentidadBeneficiario);
+            if (beneficiario != null)
+                return View(beneficiario);
+            else
+                return NotFound();   
+        }
+        [HttpPost, ActionName("editarBeneficiario")]
+        public ActionResult editarBeneficiario(int ValorDocumentoIdentidadBeneficiario, [Bind]Beneficiarios beneficiario)
+        {
+            if (ModelState.IsValid)
+            {
+                SP_ProcedureBeneficiario.EditarBeneficiario(beneficiario, cedulaAnterior);
+                return RedirectToAction("volverIndex");
+            }
+            return NotFound();
         }
         public ActionResult eliminarBeneficiario(int ValorDocumentoIdentidadBeneficiario,int numeroCuenta)
         {
@@ -101,14 +136,12 @@ namespace AppWebBD.Controllers
             else
                 return NotFound();
         }
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult eliminarConfirmed(int ValorDocumentoIdentidadBeneficiario,int numeroCuenta)
         {
             try
             {
                 SP_ProcedureBeneficiario.EliminarBeneficiario(ValorDocumentoIdentidadBeneficiario);
-                return RedirectToAction("verBeneficiarios",numeroCuenta);
+                return verBeneficiarios(numeroCuenta);
             }
             catch
             {

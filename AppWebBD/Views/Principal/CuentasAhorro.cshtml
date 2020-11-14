@@ -47,8 +47,8 @@
             </td>
             <td>
                 @Html.ActionLink("Ver los Beneficiarios", "verBeneficiarios", new { numeroCuenta = item.NumeroCuenta})<br />
-                @Html.ActionLink("Ver Estado de Cuenta", "Delete", new { /* id=item.PrimaryKey */ })<br />
-                @Html.ActionLink("Agregar Beneficiario", "Delete", new { /* id=item.PrimaryKey */ })<br />
+                @Html.ActionLink("Ver Estado de Cuenta", "verEstadoDeCuenta", new { numeroCuenta = item.NumeroCuenta })<br />
+                @Html.ActionLink("Agregar Beneficiario", "agregarBeneficiario", new { numeroCuenta = item.NumeroCuenta })<br />
             </td>
         </tr>
 }

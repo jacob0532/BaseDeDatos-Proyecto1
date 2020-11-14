@@ -84,5 +84,43 @@ namespace AppWebBD.Context
             }
 
         }
+        public void AgregarBeneficiario(Beneficiarios beneficiario)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SP_AgregarBeneficiario", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@inNumeroCuenta", beneficiario.NumeroCuenta);
+                cmd.Parameters.AddWithValue("@inValorDocIdentidadBeneficiario", beneficiario.ValorDocumentoIdentidadBeneficiario);
+                cmd.Parameters.AddWithValue("@inParentezcoId", beneficiario.ParentezcoId);
+                cmd.Parameters.AddWithValue("@inPorcentaje", beneficiario.Porcentaje);
+                
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+        }
+        public void EditarBeneficiario(Beneficiarios beneficiario, int cedulaAnterior)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SP_ActualizarBeneficiario", con); 
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@inNumeroCuenta", beneficiario.NumeroCuenta);
+                cmd.Parameters.AddWithValue("@inValorDocumentoIdentidadBeneficiario", cedulaAnterior);
+                cmd.Parameters.AddWithValue("@inNuevoDocumentoIdentidad", beneficiario.ValorDocumentoIdentidadBeneficiario);
+                cmd.Parameters.AddWithValue("@inParentezcoId", beneficiario.ParentezcoId);
+                cmd.Parameters.AddWithValue("@inPorcentaje", beneficiario.Porcentaje);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+        }
     }
 }

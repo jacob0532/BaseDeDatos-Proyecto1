@@ -121,3 +121,6 @@ C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Ra
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\CuentasAhorro.cshtml.g.cs
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\verBeneficiarios.cshtml.g.cs
 C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\eliminarBeneficiario.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\agregarBeneficiario.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\editarBeneficiario.cshtml.g.cs
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\verEstadoDeCuenta.cshtml.g.cs
