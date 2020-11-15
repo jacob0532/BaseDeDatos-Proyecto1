@@ -16,6 +16,7 @@ namespace AppWebBD.Controllers
         SP_Beneficiario SP_ProcedureBeneficiario = new SP_Beneficiario();
         SP_Parentezco SP_ProcedureParentezco = new SP_Parentezco();
         SP_EstadoCuenta SP_ProcedureEstadoCuenta = new SP_EstadoCuenta();
+        SP_VerificarPorcentajeBeneficiarios SP_ProcedureVerificarPorcentajeBeneficiarios = new SP_VerificarPorcentajeBeneficiarios();
         public static Usuario usuarioFijo { get; set; } = null;
         public static int cedulaAnterior { get; set; } = 0;
         public IActionResult Index()
@@ -47,13 +48,13 @@ namespace AppWebBD.Controllers
                 return CuentasAhorro(usuario);
             }
             else
-            {   
+            {
+                string errorLoginMsg = "El usuario o contraseña no son válidos.";    //Mensaje de error.
+                TempData["ErrorLogin"] = errorLoginMsg;                         //Tempdata, guarda el mensaje de error.
                 return RedirectToAction("Login");
             }
         }
-            //System.Diagnostics.Trace.WriteLine("\n A VEEEEEER" + usuario.User); imprime y pasar un parametro a la vista 
-            //ViewBag.user = usuario.User;
-            //return View("UsuarioConfirmed",usuario);
+
         public ActionResult CuentasAhorro(Usuario usuario)
         {
             if (usuario.EsAdmi == 0)
@@ -83,6 +84,8 @@ namespace AppWebBD.Controllers
             tabla.ListaDeBeneficiarios = beneficariosList;
             tabla.ListaDeClientes = clientesList;
             tabla.ListaDeParentezcos = parentezcoList;
+
+            TempData["WarningPorcentage"] = SP_ProcedureVerificarPorcentajeBeneficiarios.VerificarPorcentaje(numeroCuenta); ;                        
             return View("verBeneficiarios",tabla);
         }
         public ActionResult volverIndex()
