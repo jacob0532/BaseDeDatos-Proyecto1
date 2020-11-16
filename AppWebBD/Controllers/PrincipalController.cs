@@ -17,6 +17,7 @@ namespace AppWebBD.Controllers
         SP_Parentezco SP_ProcedureParentezco = new SP_Parentezco();
         SP_EstadoCuenta SP_ProcedureEstadoCuenta = new SP_EstadoCuenta();
         SP_VerificarPorcentajeBeneficiarios SP_ProcedureVerificarPorcentajeBeneficiarios = new SP_VerificarPorcentajeBeneficiarios();
+        SP_TipoCuentaAhorro SP_ProcedureTipoCuentaAhorro = new SP_TipoCuentaAhorro();
         public static Usuario usuarioFijo { get; set; } = null;
         public static int cedulaAnterior { get; set; } = 0;
         public IActionResult Index()
@@ -96,6 +97,12 @@ namespace AppWebBD.Controllers
         {
             List<EstadoCuenta> estadosCuentasList = SP_ProcedureEstadoCuenta.SeleccionarEstadoDeCuenta(numeroCuenta).ToList();
             return View(estadosCuentasList);
+        }
+        public ActionResult verTipoCuenta(int id)
+        {
+            TipoCuentaAhorro tipoCuenta = SP_ProcedureTipoCuentaAhorro.SeleccionarTipoCuenta(id);
+            tipoCuenta = SP_ProcedureTipoCuentaAhorro.SeleccionarMoneda(id, tipoCuenta);
+            return View(tipoCuenta);
         }
         public ActionResult agregarBeneficiario(int numeroCuenta)
         {

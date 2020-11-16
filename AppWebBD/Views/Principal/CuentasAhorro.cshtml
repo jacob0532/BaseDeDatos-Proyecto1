@@ -10,10 +10,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Clienteid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoCuentaid)
+                Identidad
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.NumeroCuenta)
@@ -34,9 +31,6 @@
                 @Html.DisplayFor(modelItem => item.Clienteid)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TipoCuentaid)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.NumeroCuenta)
             </td>
             <td>
@@ -46,9 +40,10 @@
                 @Html.DisplayFor(modelItem => item.Saldo)
             </td>
             <td>
-                @Html.ActionLink("Ver los Beneficiarios", "verBeneficiarios", new { numeroCuenta = item.NumeroCuenta})<br />
+                @Html.ActionLink("Ver los Beneficiarios", "verBeneficiarios", new { numeroCuenta = item.NumeroCuenta })<br />
                 @Html.ActionLink("Ver Estado de Cuenta", "verEstadoDeCuenta", new { numeroCuenta = item.NumeroCuenta })<br />
                 @Html.ActionLink("Agregar Beneficiario", "agregarBeneficiario", new { numeroCuenta = item.NumeroCuenta })<br />
+                @Html.ActionLink("Tipo de Cuenta", "verTipoCuenta", new { id = item.TipoCuentaid })<br />
             </td>
         </tr>
 }

@@ -38,5 +38,6 @@
             @Html.DisplayFor(model => model.Porcentaje)
         </dd>
     </dl>
-    @Html.ActionLink("Eliminar", "eliminarConfirmed", new {ValorDocumentoIdentidadBeneficiario = Model.ValorDocumentoIdentidadBeneficiario,numeroCuenta=Model.NumeroCuenta})
+    @Html.ActionLink("Eliminar", "eliminarConfirmed", new { ValorDocumentoIdentidadBeneficiario = Model.ValorDocumentoIdentidadBeneficiario, numeroCuenta = Model.NumeroCuenta })
 </div>
+@Html.ActionLink("<--Volver", "volverIndex", new { })

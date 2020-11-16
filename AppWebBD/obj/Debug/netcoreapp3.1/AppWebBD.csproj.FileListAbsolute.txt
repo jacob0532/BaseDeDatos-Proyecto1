@@ -250,3 +250,4 @@ C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyec
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.dll
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.pdb
 C:\Users\dvarg\Desktop\TEC\2020\Segundo Semestre\Bases de datos\Proyectos\Proyecto 1\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\AppWebBD.genruntimeconfig.cache
+C:\Users\yeico\Desktop\BaseDeDatos-Proyecto1\AppWebBD\obj\Debug\netcoreapp3.1\Razor\Views\Principal\verTipoCuenta.cshtml.g.cs

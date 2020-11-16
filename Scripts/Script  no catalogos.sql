@@ -31,6 +31,23 @@ WHERE ref.value('@ValorDocumentoIdentidad', 'int') NOT IN (
 		FROM Cliente
 		)
 
+--Inserta los datos de usuarios
+INSERT INTO Usuario (
+	[User]
+	,Pass
+	,ValorDocIdentidad
+	,EsAdmi
+	)
+SELECT ref.value('@User', 'varchar(50)')
+	,ref.value('@Pass', 'varchar(50)')
+	,ref.value('@ValorDocumentoIdentidad', 'int')
+	,ref.value('@EsAdministrador', 'bit')
+FROM @xmlData.nodes('Datos/Usuarios/Usuario') xmlData(ref)
+WHERE ref.value('@ValorDocumentoIdentidad', 'int') NOT IN (
+		SELECT ValorDocIdentidad
+		FROM Usuario
+		)
+
 --Inserta los datos de las cuentas
 INSERT INTO CuentaAhorro (
 	Clienteid
@@ -83,22 +100,7 @@ SELECT ref.value('@NumeroCuenta', 'int')
 FROM @xmlData.nodes('Datos/Estados_de_Cuenta/Estado_de_Cuenta')
 xmlData(ref)
 
---Inserta los datos de usuarios
-INSERT INTO Usuario (
-	[User]
-	,Pass
-	,ValorDocIdentidad
-	,EsAdmi
-	)
-SELECT ref.value('@User', 'varchar(50)')
-	,ref.value('@Pass', 'varchar(50)')
-	,ref.value('@ValorDocumentoIdentidad', 'int')
-	,ref.value('@EsAdministrador', 'bit')
-FROM @xmlData.nodes('Datos/Usuarios/Usuario') xmlData(ref)
-WHERE ref.value('@ValorDocumentoIdentidad', 'int') NOT IN (
-		SELECT ValorDocIdentidad
-		FROM Usuario
-		)
+
 
 --Inserta los datos de usuarios puede ver
 INSERT INTO UsuarioPuedeVer (
@@ -112,3 +114,4 @@ WHERE ref.value('@NumeroCuenta', 'int') NOT IN (
 		SELECT NumeroCuenta
 		FROM UsuarioPuedeVer
 		)
+

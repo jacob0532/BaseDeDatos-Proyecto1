@@ -32,30 +32,32 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroCuenta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SaldoInicial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SaldoFinal)
-            </td>
-            <td>
-                @Html.ActionLink("Movimientos", "a", new { /* id=item.PrimaryKey */ }) |
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroCuenta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaFin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaldoInicial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaldoFinal)
+                </td>
+                <td>
+                    @Html.ActionLink("Movimientos", "volverIndex", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@Html.ActionLink("<--Volver", "volverIndex", new { })

@@ -22,12 +22,12 @@ namespace AppWebBD.Context
             cmd.ExecuteNonQuery();
             int resultado = Int32.Parse(codigoRetorno.Value.ToString());
 
-            string msg = "";
+            string msg = null;
             if(resultado == 5007)
             {
-                msg = "El porcentaje es menor al 100%";
+                msg = "La suma de los porcentajes de sus beneficiarios no suma 100, favor corregir";
             }else if (resultado  == 5008){
-                msg = "El porcentaje es mayor al 100%";
+                msg = "La suma de los porcentajes de sus beneficiarios suma más 100, favor corregir";
             }
 
             con.Close();
